@@ -10,7 +10,7 @@ about_page = st.Page(
 )
 project_1_page = st.Page(
     "Nyaysathi.py",
-    title="Sales Dashboard",
+    title="Nyaysathi",
     icon=":material/balance:",
 )
 
