@@ -3,13 +3,13 @@ import streamlit as st
 
 # --- PAGE SETUP ---
 about_page = st.Page(
-    "views/about_me.py",
+    "about_me.py",
     title="About Me",
     icon=":material/account_circle:",
     default=True,
 )
 project_1_page = st.Page(
-    "views/sales_dashboard.py",
+    "Nyaysathi.py",
     title="Sales Dashboard",
     icon=":material/bar_chart:",
 )
