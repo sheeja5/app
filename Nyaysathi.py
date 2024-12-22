@@ -59,7 +59,7 @@ if prompt := st.chat_input("How can I help?"):
 
 prompti = (f"{prompt}(you are an indian legal specialist, who helps people with justice so answer this question like a legal assistant of India)")
     # Generate and display the assistant's response
-      with st.chat_message("assistant", avatar=BOT_AVATAR):
+with st.chat_message("assistant", avatar=BOT_AVATAR):
         message_placeholder = st.empty()
         try:
             with st.spinner("Generating response..."):
