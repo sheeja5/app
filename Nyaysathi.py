@@ -53,17 +53,17 @@ for message in st.session_state.messages:
 # Main chat interface
 if prompt := st.chat_input("How can I help?"):
     # Add user input to the chat history
-    prompt += ("you are an indian legal specialist, who helps people with justice so answer this question like a legal assistant of India")
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user", avatar=USER_AVATAR):
         st.markdown(prompt)
-        # Generate and display the assistant's response
+    prompt += ("you are an indian legal assistant, so answer this question in that way")     
+# Generate and display the assistant's response
 with st.chat_message("assistant", avatar=BOT_AVATAR):
         message_placeholder = st.empty()
         try:
             with st.spinner("Generating response..."):
                model=genai.GenerativeModel("gemini-1.5-flash")
-               response= model.generate_content(prompti)
+               response= model.generate_content(prompt)
                message_placeholder.markdown(response.text)
             print(response)
             st.session_state.messages.append({"role": "assistant", "content": response.text})
