@@ -56,14 +56,14 @@ if prompt := st.chat_input("How can I help?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user", avatar=USER_AVATAR):
         st.markdown(prompt)
-
+prompt1= f"{prompt}(you are an indian legal specialist, who helps people with justice so answer this question like a legal assistant of India)"
     # Generate and display the assistant's response
     with st.chat_message("assistant", avatar=BOT_AVATAR):
         message_placeholder = st.empty()
         try:
             with st.spinner("Generating response..."):
                model=genai.GenerativeModel("gemini-1.5-flash")
-               response= model.generate_content(prompt)
+               response= model.generate_content(prompt1)
                message_placeholder.markdown(response.text)
             print(response)
             st.session_state.messages.append({"role": "assistant", "content": response.text})
