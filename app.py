@@ -5,7 +5,7 @@ import streamlit as st
 about_page = st.Page(
     "about_me.py",
     title="About Me",
-    icon=":material/account_circle:",
+    icon=":material/info:",
     default=True,
 )
 project_1_page = st.Page(
