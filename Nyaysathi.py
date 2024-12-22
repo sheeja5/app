@@ -56,7 +56,7 @@ if prompt := st.chat_input("How can I help?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user", avatar=USER_AVATAR):
         st.markdown(prompt)
-    prompt += ("you are an indian legal assistant, so answer this question in that way")     
+        prompt += ("you are an indian legal assistant, so answer this question in that way")     
 # Generate and display the assistant's response
 with st.chat_message("assistant", avatar=BOT_AVATAR):
         message_placeholder = st.empty()
