@@ -1,25 +1,5 @@
 import streamlit as st
-
-# Setting a background image
-def set_background(image_path):
-    """
-    Sets a background image for the Streamlit app.
-    """
-    st.markdown(
-        f"""
-        <style>
-        .stApp {{
-            background: url({image_path});
-            background-size: cover;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-# Path to the background image
-background_image = "Screenshot (1).png"  # Replace with the actual path to the image
-set_background(background_image)
+import streamlit.component.v1 as com
 
 # Icon for title
 icon1 = ":material/description:"
@@ -36,3 +16,4 @@ I created NyaySathi because I believe that everyone deserves access to justice, 
 
 NyaySathi is designed to help people understand their legal rights and options, and to navigate the complex legal system. I hope that NyaySathi will empower people to fight for their rights and achieve justice. It can also lessen the number of Cyber Crimes that are increasing daily.
 """)
+com.iframe("https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js")
