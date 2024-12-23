@@ -1,6 +1,18 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 
+
+about_page = st.Page(
+       "about_me.py",
+        title="About",
+        icon=":material/info:",
+        default=True,
+    )
+ project_1_page = st.Page(
+        "Nyaysathi.py",
+        title="Nyaysathi",
+        icon=":material/balance:",
+)
 # --- PAGE SETUP ---
 nyaysathi = (":material/balance:")
 selection = option_menu(
@@ -10,19 +22,10 @@ selection = option_menu(
     orientation = "horizontal",
 )
 if selection == "About":
-    
-    about_page = st.Page(
-       "about_me.py",
-        title="About",
-        icon=":material/info:",
-        default=True,
-    )
+    about_page.run
+   
 if selection == "Nyaysathi":   
-    project_1_page = st.Page(
-        "Nyaysathi.py",
-        title="Nyaysathi",
-        icon=":material/balance:",
-)
+   project_1_page.run
 
 
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
