@@ -27,6 +27,7 @@ st.write("""
 For instance, if someone accidentally breaks a rule they didn’t understand, NyaySathi doesn’t just lecture them. It provides the right advice on how to make amends and stay lawful in the future.
 
 """)
+st.image("")
 st.write("""
 I created NyaySathi because I believe justice should be accessible to all. In India, many people miss out on fair outcomes because they can’t afford lawyers or don’t know where to start. With NyaySathi, you’ll have the tools to stand up for your rights confidently and contribute to a safer, more peaceful society.
 
