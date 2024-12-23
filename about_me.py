@@ -19,5 +19,19 @@ with c2:
   **Imagine you’re in a situation where someone refuses to return your hard-earned money or you’re tricked by an online scammer. What would you do? Most people don’t know where to start. Legal help feels expensive and complicated, leaving many without a fair chance to fight for their rights.**
 
   """)
+st.write("""
+NyaySathi was born from a simple yet powerful idea: justice should be accessible to everyone, regardless of their background or resources. This is where NyaySathi steps in—a smart AI platform built to ensure justice for everyone, no matter their background or income. NyaySathi simplifies legal processes, helps you understand your rights, and guides you step-by-step, whether it's reporting cybercrimes or resolving disputes.
+
+""")  
+st.write("""
+For instance, if someone accidentally breaks a rule they didn’t understand, NyaySathi doesn’t just lecture them. It provides the right advice on how to make amends and stay lawful in the future.
+
+""")
+st.write("""
+I created NyaySathi because I believe justice should be accessible to all. In India, many people miss out on fair outcomes because they can’t afford lawyers or don’t know where to start. With NyaySathi, you’ll have the tools to stand up for your rights confidently and contribute to a safer, more peaceful society.
+
+Let’s create a world where everyone feels protected—try NyaySathi today and be part of the change.
+
+""")
 if st.button('Try Nyaysathi now'):
  st.switch_page("nyaysathi.py") 
