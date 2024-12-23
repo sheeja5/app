@@ -16,7 +16,7 @@ project_1_page = st.Page(
 
 pg1 = st.navigation(
        {
-              [about_page]
+          "Info",[about_page]
        }
 )
 # --- PAGE SETUP ---
