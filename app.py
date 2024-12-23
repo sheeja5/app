@@ -6,13 +6,13 @@ about_page = st.Page(
     "about_me.py",
     title="About Me",
     icon=":material/account_circle:",
-    default=False,
+    default=True,
 )
 project_1_page = st.Page(
     "Nyaysathi.py",
     title="Nyaysathi",
     icon=":material/balance:",
-    default=True,
+    default=False,
 )
 
 
