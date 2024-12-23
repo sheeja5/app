@@ -1,26 +1,37 @@
 import streamlit as st
 
-# Function to display the navigation bar
-def navigation_bar():
-    # Horizontal navigation using a selectbox or radio buttons
-    menu = ['About', 'Nyaysathi']
-    choice = st.selectbox("Select Page", menu)
-    return choice
 
-# Main function to navigate based on selection
-def main():
-    # Display the navigation bar
-    choice = navigation_bar()
+# --- PAGE SETUP ---
+about_page = st.Page(
+    "about_me.py",
+    title="About Me",
+    icon=":material/account_circle:",
+    default=False,
+)
+project_1_page = st.Page(
+    "Nyaysathi.py",
+    title="Sales Dashboard",
+    icon=":material/balance:",
+    default=True,
+)
 
-    # Redirect to the appropriate page
-    if choice == 'About':
-        st.write("Redirecting to About Page...")
-        st.markdown('<a href="about_me.py" target="_self">Go to About</a>', unsafe_allow_html=True)
-    elif choice == 'Nyaysathi':
-        st.write("Redirecting to Nyaysathi Page...")
-        st.markdown('<a href="Nyaysathi.py" target="_self">Go to Nyaysathi</a>', unsafe_allow_html=True)
 
-# Run the app
-if __name__ == '__main__':
-    main()
+# --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
+# pg = st.navigation(pages=[about_page, project_1_page, project_2_page])
 
+# --- NAVIGATION SETUP [WITH SECTIONS]---
+pg = st.navigation(
+    {
+        "Info": [about_page],
+        "Projects": [project_1_page, project_2_page],
+    }
+)
+
+
+# --- SHARED ON ALL PAGES ---
+#st.logo("assets/codingisfun_logo.png")
+#st.sidebar.markdown("Made with ❤️ by [Sven](https://youtube.com/@codingisfun)")
+
+
+# --- RUN NAVIGATION ---
+pg.run()
