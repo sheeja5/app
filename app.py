@@ -8,7 +8,7 @@ about_page = st.Page(
         icon=":material/info:",
         default=True,
     )
- project_1_page = st.Page(
+project_1_page = st.Page(
         "Nyaysathi.py",
         title="Nyaysathi",
         icon=":material/balance:",
