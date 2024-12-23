@@ -20,4 +20,4 @@ with c2:
 
   """)
 if st.button('Try Nyaysathi now'):
-  switch_page("app/Nyaysathi") 
+  switch_page("Nyaysathi") 
