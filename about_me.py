@@ -2,6 +2,7 @@ import streamlit as st
 # Icon for title
 icon1 = ":material/description:"
 # Content of the introduction
+col1, col2 = st.column(2, gap="small", vetical_alignment="center")
 st.title(f"Introduction {icon1}")
 st.markdown("## **Nyaysathi**")
 st.write("""
