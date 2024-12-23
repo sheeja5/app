@@ -9,6 +9,8 @@ selected = option_menu(
 )
 if selected == "About":
     st.switch_page("about_me.py")
+if selected == "Nyaysathi":
+    st.switch_page("nyaysathi.py")
 about_page = st.Page(
     "about_me.py",
     title="About",
