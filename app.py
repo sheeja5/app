@@ -17,7 +17,7 @@ if selection == "About":
         icon=":material/info:",
         default=True,
     )
-if selection == "Nyaysathi"    
+if selection == "Nyaysathi":   
     project_1_page = st.Page(
         "Nyaysathi.py",
         title="Nyaysathi",
