@@ -22,10 +22,10 @@ selection = option_menu(
     orientation = "horizontal",
 )
 if selection == "About":
-    about_page.run
+       about_page.run
    
-if selection == "Nyaysathi":   
-   project_1_page.run
+if selection == "Nyaysathi":
+       project_1_page.run
 
 
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
