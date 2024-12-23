@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-seleted = option_menu(
+selected = option_menu(
     menu_title = "Menu",
     options = ["About","Nyaysathi"],
     icons = ["info-circle","robot"],
