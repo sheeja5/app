@@ -29,7 +29,7 @@ selection = option_menu(
 
 
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
- pg = st.navigation(pages=[about_page, project_1_page])
+pg = st.navigation(pages=[about_page, project_1_page])
 
 # --- NAVIGATION SETUP [WITH SECTIONS]---
 pg = st.navigation(
