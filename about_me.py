@@ -1,13 +1,6 @@
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
-st.markdown("""
-<style>
-.st-emotion-cache-19el2lr.e1obcldf18
-{
-  visibility:hidden;
-}
-</style>
-""",unsafe_allow_html=True)
+
 # Icon for title
 icon1 = ":material/description:"
 # Content of the introduction
