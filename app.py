@@ -14,11 +14,6 @@ project_1_page = st.Page(
         icon=":material/balance:",
 )
 
-pg1 = st.navigation(
-       {
-          "Info",[about_page]
-       }
-)
 # --- PAGE SETUP ---
 nyaysathi = (":material/balance:")
 selection = option_menu(
@@ -28,22 +23,21 @@ selection = option_menu(
     orientation = "horizontal",
 )
 if selection == "About":
-       pg1.run
-   
+    
 if selection == "Nyaysathi":
-       project_1_page.run
+ 
 
 
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
 # pg = st.navigation(pages=[about_page, project_1_page, project_2_page])
 
 # --- NAVIGATION SETUP [WITH SECTIONS]---
-#pg = st.navigation(
-    #{
-     #   "Info": [about_page],
-     #  "Projects": [project_1_page],
-    #}
-#)
+pg = st.navigation(
+    {
+       "Info": [about_page],
+      "Projects": [project_1_page],
+    }
+)
 
 
 # --- SHARED ON ALL PAGES ---
@@ -52,4 +46,4 @@ if selection == "Nyaysathi":
 
 
 # --- RUN NAVIGATION ---
-#pg.run()
+pg.run()
