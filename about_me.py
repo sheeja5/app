@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit import streamlit-extras
 # Icon for title
 icon1 = ":material/description:"
 # Content of the introduction
