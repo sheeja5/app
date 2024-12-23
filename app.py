@@ -1,7 +1,13 @@
 import streamlit as st
-
+from streamlit_option_menu import option_menu
 
 # --- PAGE SETUP ---
+selection = option_menu(
+    menu_title = "Main Menu",
+    options = ["About","Nyaysathi"],
+    icons = ["info","balance"]
+    orientation = "horizontal",
+)
 about_page = st.Page(
     "about_me.py",
     title="About",
@@ -34,5 +40,3 @@ project_1_page = st.Page(
 
 # --- RUN NAVIGATION ---
 #pg.run()
-about_page.run()
-project_1_page.run()
