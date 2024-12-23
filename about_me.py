@@ -10,7 +10,7 @@ with col1:
 with col2:
   st.image("Screenshot (2).png", width=230)
 st.markdown("## **Nyaysathi**")
-c1,c2 = st.columns(2, gap="small", vertical_alignment="center")
+c1,c2 = st.columns(2, gap="small", vertical_alignment="bottom")
 with c1:
   st.image("DALL·E 2024-12-23 18.56.53 - A highly realistic and emotional illustration showing poor people living on the streets of India, with a backdrop of crowded streets and humble shelte.webp", width=230)
 with c2:
@@ -28,13 +28,12 @@ with colu1:
   st.write("""
   For instance, if someone accidentally breaks a rule they didn’t understand, NyaySathi doesn’t just lecture them. It provides the right advice on how to make amends and stay lawful in the future.
   I created NyaySathi because I believe justice should be accessible to all. In India, many people miss out on fair outcomes because they can’t afford lawyers or don’t know where to start.
+  With NyaySathi, you’ll have the tools to stand up for your rights confidently and contribute to a safer, more peaceful society.
   """)
 with colu2:
   st.image("DALL·E 2024-12-23 18.57.05 - A vibrant and uplifting illustration showcasing the essence of NyaySathi_ a diverse group of people interacting with an AI-powered justice platform in.webp",width=230)
 st.write("""
- With NyaySathi, you’ll have the tools to stand up for your rights confidently and contribute to a safer, more peaceful society.
-
-Let’s create a world where everyone feels protected—try NyaySathi today and be part of the change.
+ Let’s create a world where everyone feels protected—try NyaySathi today and be part of the change.
 
 """)
 if st.button('Try Nyaysathi now'):
