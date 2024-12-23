@@ -36,5 +36,5 @@ st.write("""
  Let’s create a world where everyone feels protected—try NyaySathi today and be part of the change.
 
 """)
-if st.button('Try Nyaysathi now'):
+if st.button('Nyaysathi'):
  st.switch_page("nyaysathi.py") 
