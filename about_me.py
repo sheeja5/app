@@ -8,13 +8,16 @@ with col1:
 with col2:
   st.image("Screenshot (2).png", width=230)
 st.markdown("## **Nyaysathi**")
-st.write("""
-A perfect AI for legal assistance
+st.write("""NyaySathi: Your Companion for Justice
 
-This AI aims to make use of its knowledge to ensure that all the people of India are feeling safe. A peaceful surrounding is created with “ZERO” number of conflict among the people of India. This AI platform can also be situational-based, like if a person commits some kind of crime by mistake, this AI could help that person by leading him/her to a rightful way to deal with it.
+Imagine you’re in a situation where someone refuses to return your hard-earned money or you’re tricked by an online scammer. What would you do? Most people don’t know where to start. Legal help feels expensive and complicated, leaving many without a fair chance to fight for their rights.
 
-I created NyaySathi because I believe that everyone deserves access to justice, regardless of their income or background. In India, many people are unable to afford legal representation, which can lead to unfair outcomes in court.
+NyaySathi was born from a simple yet powerful idea: justice should be accessible to everyone, regardless of their background or resources. This is where NyaySathi steps in—a smart AI platform built to ensure justice for everyone, no matter their background or income. NyaySathi simplifies legal processes, helps you understand your rights, and guides you step-by-step, whether it's reporting cybercrimes or resolving disputes.
 
-NyaySathi is designed to help people understand their legal rights and options, and to navigate the complex legal system. I hope that NyaySathi will empower people to fight for their rights and achieve justice. It can also lessen the number of Cyber Crimes that are increasing daily.
+For instance, if someone accidentally breaks a rule they didn’t understand, NyaySathi doesn’t just lecture them. It provides the right advice on how to make amends and stay lawful in the future.
+
+I created NyaySathi because I believe justice should be accessible to all. In India, many people miss out on fair outcomes because they can’t afford lawyers or don’t know where to start. With NyaySathi, you’ll have the tools to stand up for your rights confidently and contribute to a safer, more peaceful society.
+
+Let’s create a world where everyone feels protected—try NyaySathi today and be part of the change.
 """)
 st.link_button('Try Nyaysathi now','https://2xbjtqbfkb2zwbev7prccj.streamlit.app/Nyaysathi')
