@@ -23,7 +23,7 @@ st.write("""
 NyaySathi was born from a simple yet powerful idea: justice should be accessible to everyone, regardless of their background or resources. This is where NyaySathi steps in—a smart AI platform built to ensure justice for everyone, no matter their background or income. NyaySathi simplifies legal processes, helps you understand your rights, and guides you step-by-step, whether it's reporting cybercrimes or resolving disputes.
 
 """)  
-colu1,colu2= st.columns(2, gap="small", vertical_alignment="top")
+colu1,colu2= st.columns(2, gap="medium", vertical_alignment="top")
 with colu1:
   st.write("""
   For instance, if someone accidentally breaks a rule they didn’t understand, NyaySathi doesn’t just lecture them. It provides the right advice on how to make amends and stay lawful in the future.
