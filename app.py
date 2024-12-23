@@ -34,3 +34,5 @@ project_1_page = st.Page(
 
 # --- RUN NAVIGATION ---
 #pg.run()
+about_page.run()
+project_1_page.run()
