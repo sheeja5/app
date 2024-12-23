@@ -4,10 +4,9 @@ icon1 = ":material/description:"
 # Content of the introduction
 col1,col2 = st.columns(2, gap ="small", vertical_alignment ="center")
 with col1:
-  st.write("hello")
+  st.title(f"Introduction {icon1}")
 with col2:
-  st.write("hi")
-st.title(f"Introduction {icon1}")
+  
 st.markdown("## **Nyaysathi**")
 st.write("""
 A perfect AI for legal assistance
