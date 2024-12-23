@@ -15,11 +15,9 @@ def main():
     # Redirect to the appropriate page
     if choice == 'About':
         st.write("Redirecting to About Page...")
-        st.experimental_set_query_params(page="about")  # Optional, useful for URL routing in Streamlit
         st.markdown('<a href="about_me.py" target="_self">Go to About</a>', unsafe_allow_html=True)
     elif choice == 'Nyaysathi':
         st.write("Redirecting to Nyaysathi Page...")
-        st.experimental_set_query_params(page="nyaysathi")  # Optional
         st.markdown('<a href="Nyaysathi.py" target="_self">Go to Nyaysathi</a>', unsafe_allow_html=True)
 
 # Run the app
