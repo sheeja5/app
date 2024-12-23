@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 
 # --- PAGE SETUP ---
-nyaysathi = ":material/balance:"
+nyaysathi = (":material/balance:")
 selection = option_menu(
     menu_title = "Main Menu",
     options = ["About","Nyaysathi"],
