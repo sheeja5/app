@@ -1,13 +1,6 @@
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
-hide = """
-<style>
-#MainMenu {visibility:hidden;}
-footer {visibility:hidden}
-header {visibility:hidden}
-</style>
-"""
-st.markdown(hide, unsafe_allow_html = True)
+
 # Icon for title
 icon1 = ":material/description:"
 # Content of the introduction
