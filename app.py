@@ -1,49 +1,28 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
 
+# Function to display the navigation bar
+def navigation_bar():
+    # Horizontal navigation using a selectbox or radio buttons
+    menu = ['About', 'Nyaysathi']
+    choice = st.selectbox("Select Page", menu)
+    return choice
 
-about_page = st.Page(
-       "about_me.py",
-        title="About",
-        icon=":material/info:",
-        default=True,
-    )
-project_1_page = st.Page(
-        "Nyaysathi.py",
-        title="Nyaysathi",
-        icon=":material/balance:",
-)
+# Main function to navigate based on selection
+def main():
+    # Display the navigation bar
+    choice = navigation_bar()
 
-# --- PAGE SETUP ---
-nyaysathi = (":material/balance:")
-selection = option_menu(
-    menu_title = "Main Menu",
-    options = ["About","Nyaysathi"],
-    icons = ["info",nyaysathi],
-    orientation = "horizontal",
-)
-if selection == "About":
-    open (about_me.py)   
-#if selection == "Nyaysathi":
- 
+    # Redirect to the appropriate page
+    if choice == 'About':
+        st.write("Redirecting to About Page...")
+        st.experimental_set_query_params(page="about")  # Optional, useful for URL routing in Streamlit
+        st.markdown('<a href="about.py" target="_self">Go to About</a>', unsafe_allow_html=True)
+    elif choice == 'Nyaysathi':
+        st.write("Redirecting to Nyaysathi Page...")
+        st.experimental_set_query_params(page="nyaysathi")  # Optional
+        st.markdown('<a href="nyaysathi.py" target="_self">Go to Nyaysathi</a>', unsafe_allow_html=True)
 
+# Run the app
+if __name__ == '__main__':
+    main()
 
-# --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
-pg = st.navigation(pages=[about_page, project_1_page])
-
-# --- NAVIGATION SETUP [WITH SECTIONS]---
-pg = st.navigation(
-    {
-       "Info": [about_page],
-      "Projects": [project_1_page],
-    }
-)
-
-
-# --- SHARED ON ALL PAGES ---
-#st.logo("assets/codingisfun_logo.png")
-#st.sidebar.markdown("Made with ❤️ by [Sven](https://youtube.com/@codingisfun)")
-
-
-# --- RUN NAVIGATION ---
-pg.run()
