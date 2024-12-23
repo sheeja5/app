@@ -23,7 +23,6 @@ selection = option_menu(
     orientation = "horizontal",
 )
 if selection == "About":
-    import about_me.py
     open (about_me.py)   
 #if selection == "Nyaysathi":
  
