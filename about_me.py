@@ -27,11 +27,12 @@ colu1,colu2= st.columns(2, gap="small", vertical_alignment="top")
 with colu1:
   st.write("""
   For instance, if someone accidentally breaks a rule they didn’t understand, NyaySathi doesn’t just lecture them. It provides the right advice on how to make amends and stay lawful in the future.
+  I created NyaySathi because I believe justice should be accessible to all. In India, many people miss out on fair outcomes because they can’t afford lawyers or don’t know where to start.
   """)
 with colu2:
   st.image("DALL·E 2024-12-23 18.57.05 - A vibrant and uplifting illustration showcasing the essence of NyaySathi_ a diverse group of people interacting with an AI-powered justice platform in.webp",width=230)
 st.write("""
-I created NyaySathi because I believe justice should be accessible to all. In India, many people miss out on fair outcomes because they can’t afford lawyers or don’t know where to start. With NyaySathi, you’ll have the tools to stand up for your rights confidently and contribute to a safer, more peaceful society.
+ With NyaySathi, you’ll have the tools to stand up for your rights confidently and contribute to a safer, more peaceful society.
 
 Let’s create a world where everyone feels protected—try NyaySathi today and be part of the change.
 
