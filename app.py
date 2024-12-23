@@ -24,6 +24,7 @@ selection = option_menu(
 )
 if selection == "About":
     import about_me.py
+    with open (about_me.py) as about:   
 #if selection == "Nyaysathi":
  
 
