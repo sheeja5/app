@@ -8,7 +8,7 @@ selected = option_menu(
     orientation = "horizontal",
 )
 if selected == "About":
-    st.switch_page(about_me.py)
+    st.switch_page("about_me.py")
 about_page = st.Page(
     "about_me.py",
     title="About",
