@@ -11,30 +11,30 @@ if selected == "About":
     st.switch_page("about_me.py")
 if selected == "Nyaysathi":
     st.switch_page("nyaysathi.py")
-about_page = st.Page(
-    "about_me.py",
-    title="About",
-    icon=":material/account_circle:",
-    default=True,
-)
-project_1_page = st.Page(
-    "nyaysathi.py",
-    title="Nyaysathi",
-    icon=":material/balance:",
-    default=False,
-)
+#about_page = st.Page(
+#    "about_me.py",
+#    title="About",
+#    icon=":material/account_circle:",
+#    default=True,
+#)
+#project_1_page = st.Page(
+#    "nyaysathi.py",
+#    title="Nyaysathi",
+#    icon=":material/balance:",
+#    default=False,
+#)
 
 
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
 # pg = st.navigation(pages=[about_page, project_1_page, project_2_page])
 
 # --- NAVIGATION SETUP [WITH SECTIONS]---
-pg = st.navigation(
-    {
-        "Info": [about_page],
-        "Projects": [project_1_page],
-    }
-)
+#pg = st.navigation(
+ #   {
+  #      "Info": [about_page],
+   #     "Projects": [project_1_page],
+    #}
+#)
 
 
 # --- SHARED ON ALL PAGES ---
@@ -43,4 +43,4 @@ pg = st.navigation(
 
 
 # --- RUN NAVIGATION ---
-pg.run()
+#pg.run()
