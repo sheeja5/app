@@ -17,3 +17,4 @@ I created NyaySathi because I believe that everyone deserves access to justice, 
 
 NyaySathi is designed to help people understand their legal rights and options, and to navigate the complex legal system. I hope that NyaySathi will empower people to fight for their rights and achieve justice. It can also lessen the number of Cyber Crimes that are increasing daily.
 """)
+st_button('Try Nyaysathi now','https://2xbjtqbfkb2zwbev7prccj.streamlit.app/Nyaysathi')
