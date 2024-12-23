@@ -18,7 +18,7 @@ def set_background(image_path):
     )
 
 # Path to the background image
-background_image = "path"  # Replace with the actual path to the image
+background_image = "Screenshot (1).png"  # Replace with the actual path to the image
 set_background(background_image)
 
 # Icon for title
