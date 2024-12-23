@@ -39,5 +39,5 @@ st.write("""
 if st.button('Nyaysathi'):
  st.switch_page("nyaysathi.py") 
 st.write("Founder and CEO --- Abel.S.Thomas ")
-st.write("n/")
+st.write("")
 st.write("Co-Founder and Designer --- DivyaPrakash")
