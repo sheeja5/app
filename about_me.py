@@ -1,6 +1,6 @@
 import streamlit as st
 st.title("Introduction")
-st.markdown("#**Nyaysathi**")
+st.markdown("# **Nyaysathi**")
 st.write("""
 
 A perfect Ai for legal assistance
