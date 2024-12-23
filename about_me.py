@@ -8,6 +8,7 @@ with col1:
 with col2:
   st.image("Screenshot (2).png", width=230)
 st.markdown("## **Nyaysathi**")
+st.image("")
 st.markdown("""NyaySathi: A perfect legal Assistant
 
 **Imagine you’re in a situation where someone refuses to return your hard-earned money or you’re tricked by an online scammer. What would you do? Most people don’t know where to start. Legal help feels expensive and complicated, leaving many without a fair chance to fight for their rights.**
