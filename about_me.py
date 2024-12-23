@@ -1,5 +1,6 @@
 import streamlit as st
-st.title("Introduction")
+icon1 = ":material/description:"
+st.title(f"Introduction {icon1}")
 st.markdown("## **Nyaysathi**")
 st.write("""
 
