@@ -1,10 +1,6 @@
 import streamlit as st
-from streamlit_lottie import st_lottie
-import jsonlib as json
 # Icon for title
 icon1 = ":material/description:"
-with open ("Animation.json") as source:
-  Animation = json.load(source)
 # Content of the introduction
 st.title(f"Introduction {icon1}")
 st.markdown("## **Nyaysathi**")
@@ -17,4 +13,3 @@ I created NyaySathi because I believe that everyone deserves access to justice, 
 
 NyaySathi is designed to help people understand their legal rights and options, and to navigate the complex legal system. I hope that NyaySathi will empower people to fight for their rights and achieve justice. It can also lessen the number of Cyber Crimes that are increasing daily.
 """)
-st_lottie (Animation)
