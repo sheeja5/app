@@ -3,6 +3,10 @@ import streamlit as st
 icon1 = ":material/description:"
 # Content of the introduction
 col1,col2 = st.columns(2, gap ="small", vetical_alignment ="center")
+with col1:
+  st.write(hello)
+with col2:
+  st.write(hi)
 st.title(f"Introduction {icon1}")
 st.markdown("## **Nyaysathi**")
 st.write("""
