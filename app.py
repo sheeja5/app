@@ -5,7 +5,7 @@ from streamlit_option_menu import option_menu
 selection = option_menu(
     menu_title = "Main Menu",
     options = ["About","Nyaysathi"],
-    icons = ["info","balance"]
+    icons = ["info","balance"],
     orientation = "horizontal",
 )
 about_page = st.Page(
