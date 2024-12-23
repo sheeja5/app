@@ -10,7 +10,7 @@ import google.generativeai as genai
 st.title("Nyaysathi")
 
 USER_AVATAR = ":material/account_circle:"
-BOT_AVATAR = ":material/robot_2:"
+BOT_AVATAR = ":material/balance:"
 genai.configure(api_key="AIzaSyDNcp_JDchji_PfU6mKwjCz2SxGBj0a4Ow")
 # Ensure model_name is initialized in session state
 if "model_name" not in st.session_state:
