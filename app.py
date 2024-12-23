@@ -22,9 +22,9 @@ selection = option_menu(
     icons = ["info",nyaysathi],
     orientation = "horizontal",
 )
-if selection == "About":
+#if selection == "About":
     
-if selection == "Nyaysathi":
+#if selection == "Nyaysathi":
  
 
 
