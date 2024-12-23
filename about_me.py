@@ -1,6 +1,7 @@
 import streamlit as st
 st.title("Introduction")
 st.write("""NyaySathi
+
 A perfect Ai for legal assistance
 
 This AI aims to make use of its knowledge to ensure that all the people of India are feeling safe. A peaceful surrounding is created with “ZERO” number of conflict among the people of India. this AI platform can also be situational based like if a person commits some kind of Crime by mistake this AI could help that person by leading him/her to a rightful way to how to deal with it .
