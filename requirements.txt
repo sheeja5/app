@@ -1,5 +1,3 @@
 streamlit == 1.41.1
 google-generativeai == 0.8.3
 streamlit-lottie == 0.0.5
-jsonlib == 1.6.1
-pip == 24.3.1
