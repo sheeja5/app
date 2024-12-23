@@ -10,7 +10,7 @@ with col1:
 with col2:
   st.image("Screenshot (2).png", width=230)
 st.markdown("## **Nyaysathi**")
-c1,c2 = st.columns(2, gap="small", vertical_alignment="bottom")
+c1,c2 = st.columns(2, gap="medium", vertical_alignment="bottom")
 with c1:
   st.image("DALL·E 2024-12-23 18.56.53 - A highly realistic and emotional illustration showing poor people living on the streets of India, with a backdrop of crowded streets and humble shelte.webp", width=230)
 with c2:
