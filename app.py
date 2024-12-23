@@ -9,16 +9,19 @@ selection = option_menu(
     icons = ["info",nyaysathi],
     orientation = "horizontal",
 )
-about_page = st.Page(
-    "about_me.py",
-    title="About",
-    icon=":material/info:",
-    default=True,
-)
-project_1_page = st.Page(
-    "Nyaysathi.py",
-    title="Nyaysathi",
-    icon=":material/balance:",
+if selection == "About":
+    
+    about_page = st.Page(
+       "about_me.py",
+        title="About",
+        icon=":material/info:",
+        default=True,
+    )
+if selection == "Nyaysathi"    
+    project_1_page = st.Page(
+        "Nyaysathi.py",
+        title="Nyaysathi",
+        icon=":material/balance:",
 )
 
 
