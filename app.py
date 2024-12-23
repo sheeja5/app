@@ -19,12 +19,12 @@ project_1_page = st.Page(
 # pg = st.navigation(pages=[about_page, project_1_page, project_2_page])
 
 # --- NAVIGATION SETUP [WITH SECTIONS]---
-pg = st.navigation(
-    {
-        "Info": [about_page],
-        "Projects": [project_1_page],
-    }
-)
+#pg = st.navigation(
+    #{
+     #   "Info": [about_page],
+     #  "Projects": [project_1_page],
+    #}
+#)
 
 
 # --- SHARED ON ALL PAGES ---
@@ -33,4 +33,4 @@ pg = st.navigation(
 
 
 # --- RUN NAVIGATION ---
-pg.run()
+#pg.run()
