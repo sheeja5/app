@@ -8,9 +8,9 @@ with col1:
 with col2:
   st.image("Screenshot (2).png", width=230)
 st.markdown("## **Nyaysathi**")
-st.write("""NyaySathi: Your Companion for Justice
+st.markdown("""NyaySathi: Your Companion for Justice
 
-Imagine you’re in a situation where someone refuses to return your hard-earned money or you’re tricked by an online scammer. What would you do? Most people don’t know where to start. Legal help feels expensive and complicated, leaving many without a fair chance to fight for their rights.
+**Imagine you’re in a situation where someone refuses to return your hard-earned money or you’re tricked by an online scammer. What would you do? Most people don’t know where to start. Legal help feels expensive and complicated, leaving many without a fair chance to fight for their rights.**
 
 NyaySathi was born from a simple yet powerful idea: justice should be accessible to everyone, regardless of their background or resources. This is where NyaySathi steps in—a smart AI platform built to ensure justice for everyone, no matter their background or income. NyaySathi simplifies legal processes, helps you understand your rights, and guides you step-by-step, whether it's reporting cybercrimes or resolving disputes.
 
