@@ -13,6 +13,12 @@ project_1_page = st.Page(
         title="Nyaysathi",
         icon=":material/balance:",
 )
+
+pg1 = st.navigation(
+       {
+              [about_page]
+       }
+)
 # --- PAGE SETUP ---
 nyaysathi = (":material/balance:")
 selection = option_menu(
@@ -22,7 +28,7 @@ selection = option_menu(
     orientation = "horizontal",
 )
 if selection == "About":
-       about_page.run
+       pg1.run
    
 if selection == "Nyaysathi":
        project_1_page.run
