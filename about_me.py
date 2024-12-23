@@ -1,6 +1,5 @@
 import streamlit as st
-import streamlit.component.v1 as com
-
+from streamlit_lottie import st_lottie
 # Icon for title
 icon1 = ":material/description:"
 
@@ -16,4 +15,3 @@ I created NyaySathi because I believe that everyone deserves access to justice, 
 
 NyaySathi is designed to help people understand their legal rights and options, and to navigate the complex legal system. I hope that NyaySathi will empower people to fight for their rights and achieve justice. It can also lessen the number of Cyber Crimes that are increasing daily.
 """)
-com.iframe("https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js")
