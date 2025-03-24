@@ -50,7 +50,7 @@ def generate_complaint_letter(details):
     return generated_text.text
 
 # Streamlit UI
-st.title("**NYAYSATHI**: Complaint Letter Generator")
+st.title("Complaint Letter Generator")
 
 st.subheader("Enter the details of your complaint:")
 details = st.text_area("Describe the incident here (include what happened, when, where, and who was involved):")
