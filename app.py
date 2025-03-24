@@ -13,7 +13,7 @@ project_1_page = st.Page(
     icon=":material/balance:",
     default=False,
 )
-project_2_page = st.page(
+project_2_page = st.Page(
     "complaint_generator.py",
     title= " Complaint Generator",
     icon= ":material/balance:",
