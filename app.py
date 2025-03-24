@@ -13,7 +13,12 @@ project_1_page = st.Page(
     icon=":material/balance:",
     default=False,
 )
-
+project_2_page = st.page(
+    "complaint_generator.py",
+    title= " Complaint Generator",
+    icon= ":material/balance:",
+    default= False,
+)    
 
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
 # pg = st.navigation(pages=[about_page, project_1_page, project_2_page])
@@ -22,7 +27,8 @@ project_1_page = st.Page(
 pg = st.navigation(
     {
         "Info": [about_page],
-        "Projects": [project_1_page],
+        "Projects": [project_1_page][project_2_page],
+        
     }
 )
 
