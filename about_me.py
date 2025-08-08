@@ -39,6 +39,6 @@ st.write("""
 if st.button('Nyaysathi'):
  st.switch_page("nyaysathi.py") 
 if st.button('complaint generator' ):
-  st.swich_page("complaint_generator.py")
+  st.switch_page("complaint_generator.py")
 #st.write("Founder and CEO --- **Abel.S.Thomas** ")
 #st.write("Co-Founder and Designer --- **DivyaPrakash**")
