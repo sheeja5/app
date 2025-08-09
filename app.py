@@ -22,6 +22,7 @@ project_2_page = st.Page(
 project_3_page = st.Page(
     "quiz.py",
     title= "Learn and Quiz",
+    icon = ":material/balance:",
     default= False,
 )    
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
