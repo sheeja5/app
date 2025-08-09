@@ -158,34 +158,31 @@ if mode == "Quiz Mode":
         available_count = len(get_questions_for_category(chosen_cat))
         
         num_q = 0
-        start_button_disabled = True
-
+        
         if available_count > 0:
+            start_button_disabled = False
             if available_count == 1:
                 st.info("Only one question is available for this category.")
                 num_q = 1
-                slider_value = 1
-                max_slider_val = 1
             else:
                 slider_value = min(5, available_count)
-                max_slider_val = available_count
-            
-            num_q = st.slider("Number of questions", min_value=1, max_value=max_slider_val, value=slider_value)
-            start_button_disabled = False
+                num_q = st.slider("Number of questions", min_value=1, max_value=available_count, value=slider_value)
         else:
             st.warning("No questions available for this category yet. Add questions in 'Add Question' or choose another category.")
-            num_q = 0
             start_button_disabled = True
 
         if st.button("Start Quiz", disabled=start_button_disabled):
-            pool = get_questions_for_category(chosen_cat)
-            st.session_state.quiz_qs = random.sample(pool, k=num_q)
-            st.session_state.current_index = 0
-            st.session_state.score = 0
-            st.session_state.incorrect = []
-            st.session_state.answer_submitted = False
-            st.session_state.user_choice = None
-            st.rerun()
+            if num_q > 0:
+                pool = get_questions_for_category(chosen_cat)
+                st.session_state.quiz_qs = random.sample(pool, k=num_q)
+                st.session_state.current_index = 0
+                st.session_state.score = 0
+                st.session_state.incorrect = []
+                st.session_state.answer_submitted = False
+                st.session_state.user_choice = None
+                st.rerun()
+            else:
+                st.warning("Please select at least one question to start the quiz.")
 
     if st.session_state.quiz_qs:
         if st.session_state.current_index >= len(st.session_state.quiz_qs):
