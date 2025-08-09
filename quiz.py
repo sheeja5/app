@@ -50,7 +50,6 @@ def initialize_session_state():
         st.session_state.score = 0
     if 'incorrect' not in st.session_state:
         st.session_state.incorrect = []
-    # --- FIX: Added state to track if an answer has been submitted ---
     if 'answer_submitted' not in st.session_state:
         st.session_state.answer_submitted = False
     if 'user_choice' not in st.session_state:
@@ -71,7 +70,6 @@ with st.sidebar:
     topic = st.radio("Pick a topic to read", list(LESSONS.keys()))
     st.write("\n")
     if st.button("Reset Progress"):
-        # --- FIX: Clear all session state keys for a full reset ---
         for key in list(st.session_state.keys()):
             del st.session_state[key]
         st.rerun()
@@ -87,15 +85,15 @@ if mode == "Study Mode":
 def get_questions_for_category(category: str = None):
     if category is None or category == "All":
         return st.session_state.questions
-    return [q for q in st.session_state.questions if q['category'] == category]
+    # Safely check for the category key
+    return [q for q in st.session_state.questions if q.get('category') == category]
 
-# --- Logic for Quiz Mode (REFACTORED) ---
+# --- Logic for Quiz Mode (REFACTORED & HARDENED) ---
 if mode == "Quiz Mode":
     st.subheader("Quick Quiz — Choose category")
 
-    # If a quiz is already in progress, don't show the setup
     if not st.session_state.quiz_qs:
-        categories = ["All"] + sorted({q['category'] for q in st.session_state.questions})
+        categories = ["All"] + sorted({q.get('category', 'General') for q in st.session_state.questions})
         chosen_cat = st.selectbox("Category", categories, key="quiz_category_select")
         available_count = len(get_questions_for_category(chosen_cat))
 
@@ -113,47 +111,45 @@ if mode == "Quiz Mode":
             st.session_state.incorrect = []
             st.session_state.answer_submitted = False
             st.session_state.user_choice = None
-            st.rerun() # Rerun to start the quiz immediately
+            st.rerun()
 
-    # --- This block runs if a quiz has been started ---
     if st.session_state.quiz_qs:
-        # Check if quiz is finished
         if st.session_state.current_index >= len(st.session_state.quiz_qs):
             st.balloons()
             st.success(f"**Quiz finished! Your Score: {st.session_state.score}/{len(st.session_state.quiz_qs)}**")
             if st.session_state.incorrect:
                 st.warning("You can review your incorrect answers from the sidebar in 'Review Incorrect' mode.")
             if st.button("Take Another Quiz"):
-                # Reset for a new quiz
                 st.session_state.quiz_qs = []
                 st.rerun()
         else:
-            # Display the current question
             q = st.session_state.quiz_qs[st.session_state.current_index]
             st.write(f"**Question {st.session_state.current_index + 1} of {len(st.session_state.quiz_qs)}**")
-            st.write(f"_{q['category']}_")
-            st.markdown(f"### {q['question']}")
+            # --- FIX: Use .get() for safe access to prevent KeyError ---
+            st.write(f"_{q.get('category', 'General')}_")
+            st.markdown(f"### {q.get('question', 'Error: Question text not found.')}")
 
-            # --- FIX: State-driven UI ---
-            # If answer not submitted, show options. Otherwise, show feedback.
             if not st.session_state.answer_submitted:
-                options = q['options']
-                user_choice = st.radio("Choose an answer:", options, key=f"opt_{st.session_state.current_index}")
-
-                if st.button("Submit Answer"):
-                    st.session_state.user_choice = user_choice
-                    st.session_state.answer_submitted = True
-                    if user_choice == q['answer']:
-                        st.session_state.score += 1
-                    else:
-                        st.session_state.incorrect.append(q)
-                    st.rerun()
-            else:
-                # Show feedback after submission
-                if st.session_state.user_choice == q['answer']:
-                    st.success(f"Correct! ✅ The answer is **{q['answer']}**.")
+                options = q.get('options', [])
+                if not options:
+                    st.error("Error: This question has no options.")
                 else:
-                    st.error(f"Incorrect. You chose **{st.session_state.user_choice}**. The correct answer was **{q['answer']}**.")
+                    user_choice = st.radio("Choose an answer:", options, key=f"opt_{st.session_state.current_index}")
+
+                    if st.button("Submit Answer"):
+                        st.session_state.user_choice = user_choice
+                        st.session_state.answer_submitted = True
+                        if user_choice == q.get('answer'):
+                            st.session_state.score += 1
+                        else:
+                            st.session_state.incorrect.append(q)
+                        st.rerun()
+            else:
+                correct_answer = q.get('answer', 'N/A')
+                if st.session_state.user_choice == correct_answer:
+                    st.success(f"Correct! ✅ The answer is **{correct_answer}**.")
+                else:
+                    st.error(f"Incorrect. You chose **{st.session_state.user_choice}**. The correct answer was **{correct_answer}**.")
 
                 st.info(f"**Explanation:** {q.get('explanation', 'No explanation provided.')}")
 
@@ -164,7 +160,7 @@ if mode == "Quiz Mode":
                     st.rerun()
 
 
-# --- Logic for Review Incorrect ---
+# --- Logic for Review Incorrect (HARDENED) ---
 if mode == "Review Incorrect":
     st.subheader("Review: Incorrect answers")
     if not st.session_state.get('incorrect'):
@@ -172,17 +168,17 @@ if mode == "Review Incorrect":
     else:
         for i, q in enumerate(st.session_state.incorrect, start=1):
             with st.container():
-                st.write(f"**{i}. {q['question']}**")
-                st.error(f"**Correct Answer:** {q['answer']}")
-                st.write(f"**Explanation:** {q.get('explanation', '')}")
+                # --- FIX: Use .get() for all data access to prevent errors ---
+                st.write(f"**{i}. {q.get('question', 'N/A')}**")
+                st.error(f"**Correct Answer:** {q.get('answer', 'N/A')}")
+                st.write(f"**Explanation:** {q.get('explanation', 'No explanation provided.')}")
                 st.write("---")
 
 # --- Logic for Add Question ---
 if mode == "Add Question":
     st.subheader("Add your own question")
     with st.form("add_q_form"):
-        # Use a set to get unique categories and then sort them
-        current_categories = sorted({q['category'] for q in st.session_state.questions})
+        current_categories = sorted({q.get('category', 'General') for q in st.session_state.questions})
         cat_options = current_categories + ["Create a new category..."]
         cat = st.selectbox("Category", cat_options)
 
@@ -197,15 +193,13 @@ if mode == "Add Question":
 
         submitted = st.form_submit_button("Add Question to Bank")
         if submitted:
-            # The correct answer is always the first option
             correct_answer = opts[0].strip()
-            # Filter out empty options and shuffle them for the quiz
             valid_opts = [o.strip() for o in opts if o.strip()]
             
             if not new_cat.strip() or not question_text.strip() or len(valid_opts) < 2 or not correct_answer:
                 st.error("Please provide a category, a question, and at least two options (with the correct answer in the first box).")
             else:
-                random.shuffle(valid_opts) # Shuffle options before saving
+                random.shuffle(valid_opts)
                 new_q = {
                     'category': new_cat.strip(),
                     'question': question_text.strip(),
