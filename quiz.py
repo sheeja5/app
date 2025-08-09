@@ -156,14 +156,23 @@ if mode == "Quiz Mode":
         categories = ["All"] + sorted({q.get('category', 'General') for q in st.session_state.questions})
         chosen_cat = st.selectbox("Category", categories, key="quiz_category_select")
         available_count = len(get_questions_for_category(chosen_cat))
+        
+        num_q = 0
+        start_button_disabled = True
 
-        if available_count > 0:
+        if available_count > 1:
             num_q = st.slider("Number of questions", min_value=1, max_value=available_count, value=min(5, available_count))
+            start_button_disabled = False
+        elif available_count == 1:
+            st.info("Only one question is available for this category.")
+            num_q = 1
+            start_button_disabled = False
         else:
             st.warning("No questions available for this category yet. Add questions in 'Add Question' or choose another category.")
             num_q = 0
+            start_button_disabled = True
 
-        if st.button("Start Quiz", disabled=(available_count == 0)):
+        if st.button("Start Quiz", disabled=start_button_disabled):
             pool = get_questions_for_category(chosen_cat)
             st.session_state.quiz_qs = random.sample(pool, k=num_q)
             st.session_state.current_index = 0
