@@ -31,12 +31,6 @@ LESSONS: Dict[str, str] = {
         "The Indian Penal Code is the main criminal code of India. It covers all substantive aspects of criminal law. "
         "It defines various offenses and provides punishments for them, such as 'offences against the human body' (e.g., murder, assault), 'offences against property' (e.g., theft, robbery), and 'offences against the state'."
     ),
-    "Civil Laws in India": (
-        "Civil law governs disputes between individuals or organizations. It includes areas like property law, family law, contract law, and tort law. It is different from criminal law, which deals with offenses against the state."
-    ),
-    "Civil Procedure Code (CPC)": (
-        "The Civil Procedure Code is the procedural law that governs civil proceedings in India. It outlines the process for filing a suit, summoning parties, hearing arguments, and enforcing decrees. It ensures a fair and just process for resolving civil disputes."
-    ),
 }
 
 QUESTION_BANK: List[Dict] = [
@@ -47,10 +41,6 @@ QUESTION_BANK: List[Dict] = [
     {"category": "Cybercrime & Modern Challenges", "question": "Which act provides many legal provisions to deal with cyber offences?", "options": ["Indian Penal Code", "Information Technology Act", "Evidence Act", "Contract Act"], "answer": "Information Technology Act", "explanation": "The Information Technology Act, 2000, provides a legal framework for cybercrime."},
     {"category": "Indian Penal Code (IPC) Basics", "question": "What is the primary function of the Indian Penal Code?", "options": ["Provide police investigation procedures", "Define offenses and their punishments", "Protect human rights", "Outline court trial procedures"], "answer": "Define offenses and their punishments", "explanation": "The IPC is the substantive law that defines criminal offenses and specifies their punishments."},
     {"category": "Indian Penal Code (IPC) Basics", "question": "Which category of crime does the IPC cover?", "options": ["Civil disputes only", "Administrative violations", "Offences against the human body and property", "All of the above"], "answer": "Offences against the human body and property", "explanation": "The IPC defines a wide range of crimes, including those against people, property, and the state."},
-    {"category": "Civil Laws", "question": "Which of these is an example of a civil law matter?", "options": ["Murder", "Robbery", "Property dispute", "Assault"], "answer": "Property dispute", "explanation": "A property dispute is a disagreement between private parties, which is handled under civil law."},
-    {"category": "Civil Laws", "question": "What is the main objective of civil law?", "options": ["To punish offenders", "To provide compensation to the injured party", "To maintain public order", "To prevent crime"], "answer": "To provide compensation to the injured party", "explanation": "The primary goal of civil law is to resolve disputes and provide remedies, often in the form of compensation."},
-    {"category": "Civil Laws", "question": "What is the legal term for a wrong or injury for which a civil action can be brought?", "options": ["Crime", "Tort", "Misdemeanor", "Felony"], "answer": "Tort", "explanation": "A tort is a civil wrong that causes a claimant to suffer loss or harm, resulting in legal liability for the person who commits the tortious act."},
-    {"category": "Civil Procedure Code (CPC)", "question": "Which code governs the procedure for filing a civil suit in India?", "options": ["Indian Penal Code (IPC)", "Criminal Procedure Code (CrPC)", "Civil Procedure Code (CPC)", "Evidence Act"], "answer": "Civil Procedure Code (CPC)", "explanation": "The CPC provides the procedural framework for all civil cases in India."},
 ]
 
 # --- Session State Initialization ---
