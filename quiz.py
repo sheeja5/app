@@ -160,12 +160,17 @@ if mode == "Quiz Mode":
         num_q = 0
         start_button_disabled = True
 
-        if available_count > 1:
-            num_q = st.slider("Number of questions", min_value=1, max_value=available_count, value=min(5, available_count))
-            start_button_disabled = False
-        elif available_count == 1:
-            st.info("Only one question is available for this category.")
-            num_q = 1
+        if available_count > 0:
+            if available_count == 1:
+                st.info("Only one question is available for this category.")
+                num_q = 1
+                slider_value = 1
+                max_slider_val = 1
+            else:
+                slider_value = min(5, available_count)
+                max_slider_val = available_count
+            
+            num_q = st.slider("Number of questions", min_value=1, max_value=max_slider_val, value=slider_value)
             start_button_disabled = False
         else:
             st.warning("No questions available for this category yet. Add questions in 'Add Question' or choose another category.")
