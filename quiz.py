@@ -27,6 +27,10 @@ LESSONS: Dict[str, str] = {
         "Cybercrime is handled under the Information Technology Act and IPC sections on fraud, hacking, identity theft, and harassment. "
         "Specialised cyber cells and training are critical as crimes shift online."
     ),
+    "Indian Penal Code (IPC) Basics": (
+        "The Indian Penal Code is the main criminal code of India. It covers all substantive aspects of criminal law. "
+        "It defines various offenses and provides punishments for them, such as 'offences against the human body' (e.g., murder, assault), 'offences against property' (e.g., theft, robbery), and 'offences against the state'."
+    ),
 }
 
 QUESTION_BANK: List[Dict] = [
@@ -35,6 +39,8 @@ QUESTION_BANK: List[Dict] = [
     {"category": "Rights of Citizens & Police Duties", "question": "Which article guarantees the right to life and personal liberty?", "options": ["Article 19", "Article 21", "Article 14", "Article 25"], "answer": "Article 21", "explanation": "Article 21 guarantees protection of life and personal liberty except according to procedure established by law."},
     {"category": "Investigation Basics", "question": "What is the first step usually taken by police when a cognizable offence is reported?", "options": ["Charge-sheet", "Filing FIR", "Trial in court", "Forensic analysis"], "answer": "Filing FIR", "explanation": "For cognizable offences, police file a First Information Report (FIR) before investigation."},
     {"category": "Cybercrime & Modern Challenges", "question": "Which act provides many legal provisions to deal with cyber offences?", "options": ["Indian Penal Code", "Information Technology Act", "Evidence Act", "Contract Act"], "answer": "Information Technology Act", "explanation": "The Information Technology Act, 2000, provides a legal framework for cybercrime."},
+    {"category": "Indian Penal Code (IPC) Basics", "question": "What is the primary function of the Indian Penal Code?", "options": ["Provide police investigation procedures", "Define offenses and their punishments", "Protect human rights", "Outline court trial procedures"], "answer": "Define offenses and their punishments", "explanation": "The IPC is the substantive law that defines criminal offenses and specifies their punishments."},
+    {"category": "Indian Penal Code (IPC) Basics", "question": "Which category of crime does the IPC cover?", "options": ["Civil disputes only", "Administrative violations", "Offences against the human body and property", "All of the above"], "answer": "Offences against the human body and property", "explanation": "The IPC defines a wide range of crimes, including those against people, property, and the state."},
 ]
 
 # --- Session State Initialization ---
@@ -54,6 +60,10 @@ def initialize_session_state():
         st.session_state.answer_submitted = False
     if 'user_choice' not in st.session_state:
         st.session_state.user_choice = None
+    if 'total_score' not in st.session_state:
+        st.session_state.total_score = 0
+    if 'total_quizzes' not in st.session_state:
+        st.session_state.total_quizzes = 0
 
 initialize_session_state()
 
@@ -67,19 +77,40 @@ with st.sidebar:
     mode = st.selectbox("Mode", ["Study Mode", "Quiz Mode", "Add Question", "Review Incorrect"])
     st.write("---")
     st.header("Quick Topics")
-    topic = st.radio("Pick a topic to read", list(LESSONS.keys()))
+
+    # Add search functionality to the sidebar
+    search_term = st.text_input("Search Topics", key="topic_search")
+    
+    # Filter topics based on search term
+    filtered_lessons = {
+        k: v for k, v in LESSONS.items()
+        if search_term.lower() in k.lower() or search_term.lower() in v.lower()
+    }
+    
+    if not filtered_lessons:
+        st.warning("No topics match your search.")
+    else:
+        topic = st.radio("Pick a topic to read", list(filtered_lessons.keys()))
+    
     st.write("\n")
-    if st.button("Reset Progress"):
+    if st.button("Reset All Progress"):
         for key in list(st.session_state.keys()):
             del st.session_state[key]
         st.rerun()
 
+    # Display total progress
+    st.write("---")
+    st.header("Overall Progress")
+    st.metric(label="Total Quizzes Taken", value=st.session_state.total_quizzes)
+    st.metric(label="Total Score", value=st.session_state.total_score)
+
 
 # --- Logic for Study Mode ---
 if mode == "Study Mode":
-    st.subheader(topic)
-    st.write(LESSONS[topic])
-    st.info("Tip: Switch to Quiz Mode to test what you learned.")
+    if filtered_lessons:
+        st.subheader(topic)
+        st.write(LESSONS[topic])
+        st.info("Tip: Switch to Quiz Mode to test what you learned.")
 
 # --- Helper Function for Quiz ---
 def get_questions_for_category(category: str = None):
@@ -115,8 +146,14 @@ if mode == "Quiz Mode":
 
     if st.session_state.quiz_qs:
         if st.session_state.current_index >= len(st.session_state.quiz_qs):
+            # Final quiz results
             st.balloons()
             st.success(f"**Quiz finished! Your Score: {st.session_state.score}/{len(st.session_state.quiz_qs)}**")
+            
+            # Update total stats
+            st.session_state.total_score += st.session_state.score
+            st.session_state.total_quizzes += 1
+
             if st.session_state.incorrect:
                 st.warning("You can review your incorrect answers from the sidebar in 'Review Incorrect' mode.")
             if st.button("Take Another Quiz"):
