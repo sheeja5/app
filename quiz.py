@@ -74,15 +74,26 @@ if mode == "Quiz Mode":
     categories = ["All"] + sorted({q['category'] for q in st.session_state.questions})
     chosen_cat = st.selectbox("Category", categories)
     available_count = len(get_questions_for_category(chosen_cat))
-    num_q = st.slider("Number of questions", min_value=1, max_value=available_count, value=min(5, available_count))
 
-    if st.button("Start Quiz") or len(st.session_state.quiz_qs) == 0:
+    # Only show the slider when there are questions available in the chosen category
+    if available_count > 0:
+        num_q = st.slider("Number of questions", min_value=1, max_value=available_count, value=min(5, available_count))
+    else:
+        st.warning("No questions available for this category yet. Add questions in 'Add Question' or choose another category.")
+        num_q = 0
+
+    # Start Quiz only when user clicks and category has questions
+    start_clicked = st.button("Start Quiz")
+    if start_clicked:
         pool = get_questions_for_category(chosen_cat)
-        num_q = min(num_q, len(pool))  # Safety check
-        st.session_state.quiz_qs = random.sample(pool, k=num_q)
-        st.session_state.current_index = 0
-        st.session_state.score = 0
-        st.session_state.incorrect = []
+        if not pool:
+            st.warning("Cannot start quiz — selected category has no questions.")
+        else:
+            num_q = max(1, min(num_q, len(pool)))  # ensure at least 1 and at most pool size
+            st.session_state.quiz_qs = random.sample(pool, k=num_q)
+            st.session_state.current_index = 0
+            st.session_state.score = 0
+            st.session_state.incorrect = []
 
     if st.session_state.quiz_qs:
         q = st.session_state.quiz_qs[st.session_state.current_index]
