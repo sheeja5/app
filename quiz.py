@@ -265,7 +265,7 @@ if mode == "Add Question":
             new_cat = cat
 
         question_text = st.text_area("Question Text")
-        opts = [st.text_input(f"Option {i+1} (Enter the correct answer in this first box)") for i in range(4)]
+        opts = [st.text_input(f"Option {i+1} (Enter the correct answer in the first box)") for i in range(4)]
         explanation = st.text_area("Explanation (optional)")
 
         submitted = st.form_submit_button("Add Question to Bank")
