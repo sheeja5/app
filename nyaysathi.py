@@ -11,7 +11,7 @@ st.title("Nyaysathi")
 
 USER_AVATAR = ":material/account_circle:"
 BOT_AVATAR = ":material/balance:"
-genai.configure(api_key="AIzaSyDtu_bejcll4knpiZTXQha0CGnhOAzcSe0")
+genai.configure(api_key="AIzaSyBhrbY_MB_fPL7RafcZa4dvI9oqrb5yDCk")
 # Ensure model_name is initialized in session state
 if "model_name" not in st.session_state:
     st.session_state["key"] = "models/flash8b"  # Update with your desired model
